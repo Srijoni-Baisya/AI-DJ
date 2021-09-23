@@ -1,0 +1,36 @@
+.heading{
+    width: 100%;
+    margin: 0;
+    font-size: 23px;
+    background-color: maroon;
+    color: white;
+}
+
+.note{
+    color: white;
+    font-size: 16px;
+}
+
+body{
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+}
+
+.div_speed{
+    float: left;
+}
+
+.div_volume{
+    float: right;
+}
+
+.div_speed_img, .div_volume_img{
+    width: 250px;
+    border-radius: 125px;
+    margin: 15px;
+}
+
+#speed, #volume{
+    font-size: 23px;
+    margin: 15px;
+}
