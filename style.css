@@ -4,6 +4,7 @@
     font-size: 23px;
     background-color: maroon;
     color: white;
+    box-shadow: 5px 5px 5px darkgray;
 }
 
 .note{
@@ -12,16 +13,18 @@
 }
 
 body{
-    background-size: cover;
+    background-size: stretch;
     font-family: 'Merriweather', serif;
 }
 
 .div_speed{
     float: left;
+
 }
 
 .div_volume{
     float: right;
+    
 }
 
 .div_speed_img, .div_volume_img{
@@ -33,4 +36,28 @@ body{
 #speed, #volume{
     font-size: 23px;
     margin: 15px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+.play_button{
+    width: 130px;
+    font-size: 25px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+canvas{
+    border: 5px solid darkblue;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+.copy_right_footer{
+    background-color: rgb(87, 15, 15);
+    color: white;
+    width: 100%;
+    line-height: 3;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
 }
