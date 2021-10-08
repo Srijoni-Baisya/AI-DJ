@@ -10,6 +10,9 @@ rightWristY = 0;
 //var to store the confidence level of left wrist
 score_lw = 0;
 
+//var to store the confidence level of right wrist
+score_rw = 0;
+
 function preload(){
     song = loadSound("music.mp3");
 }
@@ -59,7 +62,39 @@ function draw(){
 
         //set the volume
         song.setVolume(volume);
+
     }
+
+    //check if right wrist is detected
+    if(score_rw > 0.2){
+    //draw circle on right wrist
+    circle(rightWristX,rightWristY,20);
+
+    //check the value of y coordinate of right wrist
+
+    //from 1 to 100
+    if(rightWristY > 0 && rightWristY <= 100){              //from 1 to 100
+        document.getElementById("speed").innerHTML = "Speed : 0.5 times of normal speed";
+        song.rate(0.5);
+    }
+    else if(rightWristY > 100 && rightWristY <= 200){       //from 101 to 200
+
+        document.getElementById("speed").innerHTML = "Speed : 1 times of normal speed";
+        song.rate(1);
+    }
+    else if(rightWristY > 200 && rightWristY <= 300){       //from 201 to 300
+        document.getElementById("speed").innerHTML = "Speed : 1.5 times of normal speed";
+        song.rate(1.5);
+    }
+    else if(rightWristY > 300 && rightWristY <= 400){       //from 301 to 400
+        document.getElementById("speed").innerHTML = "Speed : 2 times of normal speed";
+        song.rate(2);
+    }
+    else if(rightWristY > 400){                             //from 401 to 500
+        document.getElementById("speed").innerHTML = "Speed : 2.5 times of normal speed";
+    }
+}
+
     
 }
 
@@ -75,8 +110,11 @@ function gotPoses(results){
         rightWristY = results[0].pose.rightWrist.y;
         console.log("Right Wrist X = " + rightWristX + " , Right Wrist Y = " + rightWristY);
 
+        //get the scores of the left and the right wrists
+        score_rw = results[0].pose.keypoints[10].score;
         score_lw = results[0].pose.keypoints[9].score;
-        console.log("Score Left Wrist : " + score_lw);
+        console.log("Score Left Wrist : " + score_lw + " , Score Right Wrist : " + score_rw);
+
     }
 }
 
